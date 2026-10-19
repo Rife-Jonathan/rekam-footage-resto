@@ -27,6 +27,7 @@ async function tiru(s) {
 const kirim = (s) => (NOMOUSE ? tiru(s) : new Promise((r) => { tunggu.push(r); mouse.stdin.write(s + '\n'); }));
 
 let page;
+let kal = null; // HP: asal viewport di layar hasil kalibrasi kursor (viewport emulasi ≠ isi jendela → rumus outer/inner meleset)
 async function pusat(target, dy = 0) {
   const loc = typeof target === 'string' ? page.locator(target).first() : target;
   await loc.scrollIntoViewIfNeeded({ timeout: 4000 }).catch(() => {});
@@ -40,7 +41,7 @@ async function pusat(target, dy = 0) {
     b = await loc.boundingBox({ timeout: 2500 });
     if (!b) throw new Error('tidak ketemu: ' + target);
   }
-  const o = NOMOUSE ? { x: 0, y: 0 } : await page.evaluate(() => ({
+  const o = NOMOUSE ? { x: 0, y: 0 } : kal || await page.evaluate(() => ({
     x: window.screenX + (window.outerWidth - window.innerWidth) / 2,
     y: window.screenY + (window.outerHeight - window.innerHeight) - (window.outerWidth - window.innerWidth) / 2,
   }));
@@ -105,6 +106,14 @@ for (const f of fs.readdirSync(__dirname).filter((f) => /^alur-.*.js$/.test(f)).
   await sleep(800);
   if (alur.siap) await alur.siap();
   asal = NOMOUSE ? { x: 0, y: 0 } : await page.evaluate(() => ({ x: window.screenX + (window.outerWidth - window.innerWidth) / 2, y: window.screenY + window.outerHeight - window.innerHeight - (window.outerWidth - window.innerWidth) / 2 }));
+  if (hp && !NOMOUSE) { // kalibrasi: gerakkan kursor OS ke titik tebakan, baca clientX/Y dari halaman
+    await kirim('fokus Resto Nusantara'); await sleep(400);
+    await page.evaluate(() => { window.__m = null; addEventListener('mousemove', (e) => { window.__m = [e.clientX, e.clientY]; }); });
+    const gx = Math.round(asal.x + 200), gy = Math.round(asal.y + 300);
+    await kirim(`move ${gx} ${gy} 0.2`); await sleep(300); await kirim(`move ${gx + 1} ${gy + 1} 0.1`); await sleep(400);
+    const m = await page.evaluate(() => window.__m);
+    if (m) { kal = { x: gx + 1 - m[0], y: gy + 1 - m[1] }; asal = kal; console.log('kalibrasi HP', JSON.stringify(kal)); } else console.error('kalibrasi HP gagal');
+  }
   if (DRY) console.log('viewport', await page.evaluate(() => innerWidth + 'x' + innerHeight));
   await kirim(hp ? 'move 200 500 0.2' : 'move 960 560 0.2');
   console.log('SIAP');

@@ -1,17 +1,17 @@
 {
-  "a1": "rekam ulang: take 1 memperlihatkan popup Terjemahan Chrome (sudah dimatikan)",
+  "a1": "Take ke-2 (take 1: popup Terjemahan Chrome). Durasi 9,7 dtk (0,3 dtk di bawah target).",
   "a2": "periode \"Bulan ini\" (halaman tidak punya \"30 hari terakhir\"); kartu KPI berupa tautan → pratinjau URL kecil sempat tampil di pojok kiri bawah",
   "a3": "klip uji, disetujui owner",
   "a4": "",
   "a6": "ringkasan limbah hanya 1 alasan (Busuk Rp32.651) di data demo",
   "a7": "SO berstatus Disetujui (SO draf pasca-reseed belum berisi stok fisik)",
   "a9": "bahan Ayam (bahan lain hanya 1 titik harga); rentang bawaan 90 hari; grafik hampir rata (Rp38-39 rb, +0%)",
-  "a11": "rekam ulang: take 1 menggulir ke area kosong; filter 30 hari terakhir",
+  "a11": "Take ke-2 (take 1: gulir ke area kosong). Filter 30 hari terakhir.",
   "a14": "rentang 30 hari terakhir; /reports/sales hanya tabel+kartu (tanpa grafik); /reports/menu lewat URL langsung (tidak ada di sidebar)",
   "a17": "periode Sep 2026 (periode Agu tidak ada setelah reseed)",
   "a19": "\"Lihat Situs\" membuka di tab yang sama",
-  "a12": "rekam ulang: take 1 zoom tidak terbentuk",
-  "a13": "rekam ulang: take 1 tanpa klik (tanpa zoom)",
-  "a15": "rekam ulang: take 1 tanpa klik (tanpa zoom)",
-  "a20": "Perlu rekam ulang: take pertama langkah kategori terlewat, kebanyakan tertahan di footer HP."
+  "a12": "Take ke-2 (take 1: zona zoom Manual tidak terpasang).",
+  "a13": "Take ke-2 (take 1: tidak ada klik → tanpa zoom).",
+  "a15": "Take ke-2 (take 1: tidak ada klik → tanpa zoom).",
+  "a20": "Take ke-2 (take 1: klik HP meleset → kini kursor dikalibrasi). Kategori Minuman (chip Sate & Grill di luar layar HP)."
 }

@@ -47,9 +47,11 @@ module.exports = (h) => {
     a20: { akun: 'publik', hp: true, awal: '/', async jalan() { // target 14
       await langkah('hero', () => hover('h1', 1200, 0.5));
       await langkah('gulir beranda', async () => { await roda(-3, 800); await roda(-3, 800); });
+      // bottom-nav "Menu" (fixed, y≈780) — tautan /menu lain di footer bisa tidak terlihat
       await langkah('ke menu', () => tekan(P().locator('a[href="/menu"]:visible').last(), 1700));
+      // chip kategori "Sate & Grill" di luar layar (x≈386) → pakai "Minuman" (filter, bukan ubah data)
+      await langkah('kategori', () => tekan(P().getByRole('button', { name: 'Minuman', exact: true }).first(), 1500, 0.7));
       await langkah('gulir menu', async () => { await roda(-3, 800); await roda(-2, 800); });
-      await langkah('kategori', () => hover(P().getByRole('button', { name: 'Sate & Grill' }).first(), 1900, 0.7));
       await langkah('bottom nav', () => hover(P().locator('a[href="/"]:visible').last(), 2000, 0.8));
     } },
 
