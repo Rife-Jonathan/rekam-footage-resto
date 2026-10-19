@@ -63,8 +63,10 @@ module.exports = (h) => {
       await langkah('terapkan', () => tekan(P().getByRole('button', { name: 'Terapkan' }), 1500, 0.8));
       await langkah('lunas', () => hover(baris('Lunas'), 800, 0.8));
       await langkah('buka detail', () => tekan(baris('Lunas').locator('a').first(), 1500, 0.9));
-      await langkah('item', () => tekan(P().getByText('Item', { exact: false }).first(), 2200, 0.9));
-      await langkah('gulir', async () => { await roda(-2, 1500); await roda(-1, 1700); });
+      // tanpa gulir: kolom kiri detail pendek → gulir = layar kosong. Sorot item lalu kartu Ringkasan Total (pembayaran Lunas).
+      await langkah('item', () => tekan(P().getByText('Rincian Item Pesanan').first(), 2000, 0.9, 50));
+      await langkah('total tagihan', () => tekan(P().getByText('Total Tagihan').first(), 2000, 0.9));
+      await langkah('status bayar', () => hover(P().getByText(/Lunas/).last(), 1500, 0.8));
     } },
   };
 };

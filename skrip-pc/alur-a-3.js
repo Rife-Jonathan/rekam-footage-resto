@@ -19,7 +19,7 @@ module.exports = (h) => {
   return {
     // ---------- A12 Meja (Pelayan) ----------
     a12: { akun: 'pelayan', awal: '/tables', async jalan() { // target 14
-      await langkah('area', () => hover(P().getByText('Ruang Utama', { exact: true }).first(), 1600));
+      await langkah('area', () => tekan(P().getByText('Ruang Utama', { exact: true }).first(), 1600)); // heading teks (tanpa aksi) → zona zoom di denah
       await langkah('teras', () => hover(P().getByText('Teras', { exact: true }).first(), 1000));
       await langkah('vip', () => hover(P().getByText('VIP', { exact: true }).first(), 1400));
       const lihat = P().locator('a:has-text("Lihat Pesanan"), button:has-text("Lihat Pesanan")').first();
@@ -33,7 +33,7 @@ module.exports = (h) => {
       await langkah('judul', () => hover(P().getByText('Transaksi (', { exact: false }).first(), 1000, 0.9));
       await langkah('filter qris', async () => { await hover('select', 700, 0.9); await pilih('select', 'QRIS'); });
       await langkah('daftar', () => hover(baris('QRIS').locator('td').nth(2), 1600, 0.8));
-      await langkah('refund', () => hover(baris('Refund').locator('td').nth(2), 2200, 0.9));
+      await langkah('refund', () => tekan(baris('Refund').locator('td').nth(2), 2200, 0.9)); // sel teks (tanpa aksi) → zoom ke baris refund
       await langkah('jumlah refund', () => hover(baris('Refund').locator('td').last(), 2800, 0.9));
     } },
 
@@ -52,7 +52,7 @@ module.exports = (h) => {
 
     // ---------- A15 Biaya ----------
     a15: { awal: '/expenses', async jalan() { // target 12
-      await langkah('total', () => hover(P().getByText('Biaya periode ini', { exact: false }).first(), 1000, 0.9));
+      await langkah('total', () => tekan(P().getByText('Biaya periode ini', { exact: false }).first(), 1300, 0.9)); // label teks → zona zoom kartu ringkasan
       await langkah('kategori terbesar', () => hover(P().getByText('Kategori terbesar', { exact: false }).first(), 1000, 0.9));
       await langkah('ledger', () => hover(baris('Tercatat').locator('td').nth(1), 1800, 0.9, 0));
       await langkah('gulir', async () => { await roda(-3, 900); });
