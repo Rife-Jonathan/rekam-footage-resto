@@ -1,3 +1,7 @@
+# >>> STATUS 19 Okt: data demo SEDANG di-reseed di server (izin owner). JANGAN rekam take final dulu.
+# Lanjutkan setup + latihan saja. Rekam baru boleh setelah berkas `bahan/SIAP.md` muncul (git pull tiap 5 menit);
+# isinya juga memberi tahu filter tanggal yang dipakai setelah reseed (bisa menggantikan "1-30 Sep" di bawah).
+
 # SHOTLIST — pustaka footage "Resto Nusantara" (https://resto.nusawebsite.com)
 
 Sumber: peta fitur 19 Okt 2026 (`bahan/peta/PETA.md` + screenshot acuan `bahan/peta/*.png`). Pustaka PER MODUL, bukan per video:
