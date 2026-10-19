@@ -1,0 +1,10 @@
+const { chromium } = require('E:/Content-Machine/node_modules/playwright');
+(async () => { const b = await chromium.connectOverCDP('http://127.0.0.1:9556');
+  const p = b.contexts().flatMap(c => c.pages()).find(p => p.url().includes('editor'));
+  const box = async () => p.evaluate(() => { const e = document.querySelector('div.absolute.rounded-md[class*="2563EB"]'); if (!e) return null; const r = e.getBoundingClientRect(); return { x: r.x, y: r.y, w: r.width, h: r.height }; });
+  const b0 = await box(); console.log('sebelum', JSON.stringify(b0));
+  const W = b0.w * 1.5, H = b0.h * 1.5; const cx = 0.189, cy = (0.204 - 0.09) / 0.91;
+  const tx = b0.x + cx * W, ty = b0.y + cy * H; console.log('target', tx|0, ty|0);
+  await p.mouse.move(b0.x + b0.w/2, b0.y + b0.h/2); await p.mouse.down(); await p.mouse.move(tx, ty, { steps: 15 }); await p.mouse.up();
+  await p.waitForTimeout(600); console.log('setelah drag', JSON.stringify(await box()));
+  await p.screenshot({ path: process.argv[2] }); process.exit(0); })();
