@@ -1,6 +1,6 @@
 # LAPORAN — pustaka footage Recordly resto (laptop)
 
-Diperbarui 19/10/2026, 09.39.34 WIB · 11/30 klip terunggah.
+Diperbarui 19/10/2026, 11.45.26 WIB · 16/30 klip terunggah.
 Directus: `Nusawebsite/Video/Restoran/Footage Recordly/<modul>/` · URL `https://directus.nusawebsite.com/assets/<id>`.
 Gaya: preset "Nusawebsite Demo" (diverifikasi `gaya.js` tiap klip), kursor 1.0, crop atas 9%, zoom Manual di titik klik.
 
@@ -22,12 +22,12 @@ Gaya: preset "Nusawebsite Demo" (diverifikasi `gaya.js` tiap klip), kursor 1.0, 
 | laporan | A14 | a14-laporan.mp4 | 18.3 dtk (target 18) | `d2283ed2-8016-4ca7-9fab-a02360e2b7b7` | rentang 30 hari terakhir; /reports/sales hanya tabel+kartu (tanpa grafik); /reports/menu lewat URL langsung (tidak ada di sidebar) |
 | - | A15 | - | 13.0 dtk (target 12) | belum | rekam ulang: take 1 tanpa klik (tanpa zoom) |
 | karyawan | A16 | a16-absensi.mp4 | 14.0 dtk (target 14) | `da9425f9-84ee-4e08-8773-250aad72133d` |  |
-| - | A17 | - | - (target 15) | belum | periode Sep 2026 (periode Agu tidak ada setelah reseed) |
-| - | A18 | - | - (target 12) | belum |  |
-| - | A19 | - | - (target 14) | belum | "Lihat Situs" membuka di tab yang sama |
-| - | A20 | - | - (target 14) | belum |  |
-| - | A21 | - | - (target 14) | belum |  |
-| - | A22 | - | - (target 16) | belum |  |
+| karyawan | A17 | a17-gaji.mp4 | 16.2 dtk (target 15) | `c1cfdf10-fafb-439c-9702-77ef3abf4797` | periode Sep 2026 (periode Agu tidak ada setelah reseed) |
+| audit | A18 | a18-audit.mp4 | 12.8 dtk (target 12) | `0a075307-c10a-4c4f-8d9f-2175c725ffd1` |  |
+| website | A19 | a19-cms.mp4 | 15.2 dtk (target 14) | `d83b7cbf-4dea-46a8-a508-bf033f3d68f1` | "Lihat Situs" membuka di tab yang sama |
+| - | A20 | - | 18.1 dtk (target 14) | belum | Perlu rekam ulang: take pertama langkah kategori terlewat, kebanyakan tertahan di footer HP. |
+| pengaturan | A21 | a21-pengaturan.mp4 | 15.0 dtk (target 14) | `51bb0a7f-03a2-4272-a3d9-2f9af731f760` |  |
+| akses-role | A22 | a22-role.mp4 | 16.8 dtk (target 16) | `3139d5b8-3a19-4d82-9d42-c5599372fc1c` |  |
 | - | B1 | - | - (target 16) | belum |  |
 | - | B2 | - | - (target 20) | belum |  |
 | - | B3 | - | - (target 20) | belum |  |
