@@ -1,6 +1,6 @@
 // Atur gaya editor Recordly lalu ekspor.  node varian.js <padding> <cropTop> <latar: wallpaper|color|none>
 // Slider Recordly = div[role=slider]; diatur lewat keyboard (Home lalu ArrowRight n kali).
-const { chromium } = require('E:/Content-Machine/node_modules/playwright');
+const { chromium } = require('playwright');
 (async () => {
   const [pad, top, latar] = [+process.argv[2], +process.argv[3], process.argv[4] || 'wallpaper'];
   const b = await chromium.connectOverCDP('http://127.0.0.1:9556');
@@ -22,6 +22,6 @@ const { chromium } = require('E:/Content-Machine/node_modules/playwright');
   } else if (latar === 'wallpaper') {
     await p.getByRole('button', { name: 'Image', exact: true }).click();
   }
-  await p.screenshot({ path: process.env.SHOT || 'C:/Users/RIFE/AppData/Local/Temp/varian.png' });
+  await p.screenshot({ path: process.env.SHOT || 'C:/Users/M.S.I/AppData/Local/Temp/varian.png' });
   process.exit(0);
 })().catch((e) => { console.error(e.message); process.exit(1); });

@@ -1,12 +1,12 @@
 // Alur rekam "Antrean pasien" untuk Recordly. Kursor OS asli (pyautogui) supaya Recordly mencatat klik.
 // Jeda dibuat pendek (owner: kursor jangan diam terlalu lama).
 //   node rekam-antrean.js   → cetak SIAP, tunggu file flag mulai.flag, jalankan alur, cetak SELESAI
-const { chromium } = require('E:/Content-Machine/node_modules/playwright');
+const { chromium } = require('playwright');
 const { execFileSync } = require('child_process');
 const fs = require('fs');
-const PY = 'C:/Users/RIFE/AppData/Local/Programs/Python/Python310/python.exe';
+const PY = 'C:/Users/M.S.I/AppData/Local/Programs/Python/Python313/python.exe';
 const BASE = 'https://demo-dokter-gigi.nusawebsite.com';
-const FLAG = 'E:/Rakazo/ref/recordly-uji/mulai.flag';
+const FLAG = 'C:/Users/M.S.I/Downloads/sc/rekam-footage-resto/out/mulai.flag';
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 // satu proses Python untuk semua gerak kursor (tanpa jeda start per gerakan)
 const { spawn } = require('child_process');
@@ -74,7 +74,7 @@ async function langkah(nama, fn) { try { await fn(); } catch (e) { console.error
   await langkah('hover baris', () => arahkan('table tbody tr:nth-child(2), [role=row]:nth-child(3)', 0.6, 900));
   console.log('SELESAI');
   // JANGAN tutup Chrome sebelum rekaman distop — kalau jendela hilang, Recordly merekam desktop owner (ikon pribadi terlihat)
-  const STOP = 'E:/Rakazo/ref/recordly-uji/berhenti.flag';
+  const STOP = 'C:/Users/M.S.I/Downloads/sc/rekam-footage-resto/out/berhenti.flag';
   for (let i = 0; i < 240 && !fs.existsSync(STOP); i++) await sleep(500);
   try { fs.unlinkSync(STOP); } catch {}
   await sleep(1500);

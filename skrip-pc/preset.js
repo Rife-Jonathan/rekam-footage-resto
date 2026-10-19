@@ -1,5 +1,5 @@
 // simpan / pakai preset Recordly: node preset.js simpan "<nama>" | node preset.js pakai "<nama>"
-const { chromium } = require('E:/Content-Machine/node_modules/playwright');
+const { chromium } = require('playwright');
 (async () => { const [cmd, nama] = process.argv.slice(2);
   const b = await chromium.connectOverCDP('http://127.0.0.1:9556');
   const p = b.contexts().flatMap(c => c.pages()).find(p => p.url().includes('editor'));

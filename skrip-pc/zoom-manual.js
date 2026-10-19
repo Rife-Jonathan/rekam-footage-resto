@@ -1,6 +1,6 @@
 // Ubah SEMUA zona zoom di editor Recordly ke mode "Manual" (kamera terkunci, tidak ikut kursor → tidak goyang kanan-kiri).
 //   node zoom-manual.js
-const { chromium } = require('E:/Content-Machine/node_modules/playwright');
+const { chromium } = require('playwright');
 (async () => {
   const b = await chromium.connectOverCDP('http://127.0.0.1:9556');
   const p = b.contexts().flatMap((c) => c.pages()).find((x) => x.url().includes('editor'));

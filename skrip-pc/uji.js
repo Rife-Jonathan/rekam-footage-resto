@@ -1,9 +1,9 @@
 // Uji Recordly: Chrome kiosk di layar utama, klik dilakukan KURSOR OS ASLI (pyautogui) supaya
 // Recordly bisa membaca gerak/klik kursor untuk auto-zoom. Playwright hanya mencari posisi elemen.
 //   node growth/video/recordly/uji.js
-const { chromium } = require('E:/Content-Machine/node_modules/playwright');
+const { chromium } = require('playwright');
 const { execFileSync } = require('child_process');
-const PY = 'C:/Users/RIFE/AppData/Local/Programs/Python/Python310/python.exe';
+const PY = 'C:/Users/M.S.I/AppData/Local/Programs/Python/Python313/python.exe';
 const BASE = 'https://demo-dokter-gigi.nusawebsite.com';
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -44,7 +44,7 @@ async function klik(page, sel, after = 1500) {
   console.log('SIAP'); // tanda untuk mulai rekam
   // tunggu operator (Claude) menyalakan rekaman: buat file flag ini
   const fs = require('fs');
-  const FLAG = 'E:/Rakazo/ref/recordly-uji/mulai.flag';
+  const FLAG = 'C:/Users/M.S.I/Downloads/sc/rekam-footage-resto/out/mulai.flag';
   for (let i = 0; i < 300 && !fs.existsSync(FLAG); i++) await sleep(1000);
   try { fs.unlinkSync(FLAG); } catch {}
   await sleep(+process.env.TUNGGU_MS || 4000);

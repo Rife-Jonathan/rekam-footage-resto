@@ -17,6 +17,6 @@ for ($i = 0; $i -lt 300 -and $h -eq [IntPtr]::Zero; $i++) {
 if ($h -eq [IntPtr]::Zero) { "dialog tidak muncul"; exit 1 }
 [Dlg]::SetForegroundWindow($h) | Out-Null
 Start-Sleep -Milliseconds 600
-$py = 'C:/Users/RIFE/AppData/Local/Programs/Python/Python310/python.exe'
+$py = 'C:/Users/M.S.I/AppData/Local/Programs/Python/Python313/python.exe'
 & $py -c "import pyautogui as p,time;p.hotkey('alt','n');time.sleep(0.3);p.hotkey('ctrl','a');p.write(r'$Tujuan',interval=0.01);time.sleep(0.3);p.press('enter')"
 "disimpan ke $Tujuan"

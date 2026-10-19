@@ -1,7 +1,7 @@
 // Kendali Recordly lewat CDP (Recordly.exe --remote-debugging-port=9556).
 //   node kendali.js tombol                → daftar tombol semua jendela Recordly
 //   node kendali.js klik "<teks tombol>"  → klik tombol pertama yang aria-label/teksnya memuat teks itu
-const { chromium } = require('E:/Content-Machine/node_modules/playwright');
+const { chromium } = require('playwright');
 (async () => {
   const [cmd, arg] = process.argv.slice(2);
   const b = await chromium.connectOverCDP('http://127.0.0.1:9556', { timeout: 15000 });

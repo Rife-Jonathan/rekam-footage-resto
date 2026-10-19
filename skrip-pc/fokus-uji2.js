@@ -1,4 +1,4 @@
-const { chromium } = require('E:/Content-Machine/node_modules/playwright');
+const { chromium } = require('playwright');
 (async () => { const b = await chromium.connectOverCDP('http://127.0.0.1:9556');
   const p = b.contexts().flatMap(c => c.pages()).find(p => p.url().includes('editor'));
   const box = async () => p.evaluate(() => { const e = document.querySelector('div.absolute.rounded-md[class*="2563EB"]'); const r = e.getBoundingClientRect(); return { x: r.x|0, y: r.y|0, w: r.width|0, h: r.height|0 }; });

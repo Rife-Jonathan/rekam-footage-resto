@@ -1,5 +1,5 @@
 // Buka rekaman lama di editor Recordly: node buka.js <path mp4>
-const { chromium } = require('E:/Content-Machine/node_modules/playwright');
+const { chromium } = require('playwright');
 (async () => { const b = await chromium.connectOverCDP('http://127.0.0.1:9556');
   const p = b.contexts().flatMap(c => c.pages())[0];
   const r = await p.evaluate(async (f) => { const a = window.electronAPI;

@@ -1,4 +1,4 @@
-const { chromium } = require('E:/Content-Machine/node_modules/playwright');
+const { chromium } = require('playwright');
 (async () => { const b = await chromium.launch(); const p = await b.newPage({ viewport: { width: 1920, height: 1000 } });
   const B='https://demo-dokter-gigi.nusawebsite.com'; await p.goto(B+'/login'); await p.fill('#email, input[type=email]','admin@klinik.com'); await p.fill('#password','password'); await p.click('button[type=submit]');
   await p.waitForURL(u=>!/login/.test(u.pathname));

@@ -2,7 +2,7 @@
 // Mode Auto membuat kamera mengikuti kursor ("geser kanan-kiri"); Manual + fokus di klik = kamera diam.
 //   node fokus-klik.js <path rekaman .mp4> [cropAtasPersen=9]
 // Syarat: editor terbuka dengan rekaman itu, zona sudah dibuat (Suggest Zooms), crop sudah diterapkan.
-const { chromium } = require('E:/Content-Machine/node_modules/playwright');
+const { chromium } = require('playwright');
 const fs = require('fs');
 (async () => {
   const [mp4, cropArg] = process.argv.slice(2);
@@ -19,7 +19,7 @@ const fs = require('fs');
     return { x: r.x, w: r.width, t0: +m[1], t1: +m[2] };
   });
   const zona = await p.evaluate(() => [...document.querySelectorAll('div,button')]
-    .filter((e) => /^\d(\.\d+)?×\s*(Auto|Manual)?$/.test((e.innerText || '').replace(/\s+/g, ' ').trim()) && e.getBoundingClientRect().y > 850)
+    .filter((e) => /^\d(\.\d+)?×\s*(Auto|Manual)?$/.test((e.innerText || '').replace(/\s+/g, ' ').trim()) && e.getBoundingClientRect().y > innerHeight * 0.6 && e.getBoundingClientRect().width < 400)  // baris zona di timeline (relatif: layar 150% lebih kecil)
     .map((e) => { const r = e.getBoundingClientRect(); return { x0: r.x, x1: r.x + r.width, cx: r.x + r.width / 2, cy: r.y + r.height / 2 }; })
     .filter((v, i, a) => a.findIndex((w) => Math.abs(w.cx - v.cx) < 5) === i));
   const keDetik = (x) => clip.t0 + ((x - clip.x) / clip.w) * (clip.t1 - clip.t0);
